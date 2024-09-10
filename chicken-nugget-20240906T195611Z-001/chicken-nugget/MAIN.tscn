@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://bbq4infyym622"]
+[gd_scene load_steps=4 format=3 uid="uid://bbq4infyym622"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_k7xhp"]
+[ext_resource type="Texture2D" uid="uid://gx6vh28bgp33" path="res://art/sprite_0.png" id="2_smhhj"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xfks2"]
+texture = ExtResource("2_smhhj")
 
 [node name="MAIN" type="Control"]
 layout_mode = 3
@@ -29,9 +33,15 @@ layout_mode = 2
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "CHICKEN NUGGET : 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
 
 [node name="Button" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_xfks2")
 text = "nugget
 
 "
