@@ -44,7 +44,12 @@ text = "CHICKEN NUGGET : 0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer"]
+[node name="coolanimation" type="TextureRect" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_smhhj")
+stretch_mode = 3
+
+[node name="main butten sprite" type="TextureRect" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 
 [node name="Button" type="Button" parent="MarginContainer/VBoxContainer"]
@@ -53,7 +58,7 @@ layout_mode = 2
 theme_override_styles/hover = SubResource("StyleBoxTexture_2fv4b")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_txubh")
 theme_override_styles/normal = SubResource("StyleBoxTexture_xfks2")
-text = "nugget
+text = "
 
 "
 
