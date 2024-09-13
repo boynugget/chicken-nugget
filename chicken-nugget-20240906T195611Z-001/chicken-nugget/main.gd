@@ -12,7 +12,7 @@ load("res://art/sprite_3.png"),
 load("res://art/sprite_4.png"),
 ]
 
-@onready var cool_animation: TextureRect = $MarginContainer/VBoxContainer/coolanimation
+@onready var cool_animation: TextureRect =$MarginContainer/VBoxContainer/Button/coolanimation
 var count =0
 func _on_button_pressed() -> void:
 	number +=1

@@ -1,18 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://bbq4infyym622"]
+[gd_scene load_steps=6 format=3 uid="uid://bbq4infyym622"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_k7xhp"]
 [ext_resource type="Texture2D" uid="uid://gx6vh28bgp33" path="res://art/sprite_0.png" id="2_smhhj"]
-[ext_resource type="Texture2D" uid="uid://cqodvggeduvop" path="res://art/sprite_1.png" id="2_xxl5g"]
-[ext_resource type="Texture2D" uid="uid://4xbb6h6muqbc" path="res://art/sprite_3.png" id="3_03qpn"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2fv4b"]
-texture = ExtResource("2_xxl5g")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_txubh"]
-texture = ExtResource("3_03qpn")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xfks2"]
-texture = ExtResource("2_smhhj")
 
 [node name="MAIN" type="Control"]
 layout_mode = 3
@@ -30,13 +25,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 300
-theme_override_constants/margin_top = 300
-theme_override_constants/margin_right = 300
-theme_override_constants/margin_bottom = 300
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -44,22 +36,30 @@ text = "CHICKEN NUGGET : 0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="coolanimation" type="TextureRect" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-texture = ExtResource("2_smhhj")
-stretch_mode = 3
-
 [node name="main butten sprite" type="TextureRect" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 
 [node name="Button" type="Button" parent="MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(7, 500)
+custom_minimum_size = Vector2(500, 500)
 layout_mode = 2
+focus_mode = 0
 theme_override_styles/hover = SubResource("StyleBoxTexture_2fv4b")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_txubh")
 theme_override_styles/normal = SubResource("StyleBoxTexture_xfks2")
 text = "
 
 "
+
+[node name="coolanimation" type="TextureRect" parent="MarginContainer/VBoxContainer/Button"]
+custom_minimum_size = Vector2(500, 500)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_smhhj")
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
