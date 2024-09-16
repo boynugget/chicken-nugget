@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bbq4infyym622"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_k7xhp"]
-[ext_resource type="Texture2D" uid="uid://gx6vh28bgp33" path="res://art/sprite_0.png" id="2_smhhj"]
+[ext_resource type="Texture2D" uid="uid://jlaodn7qc2x6" path="res://art/sprite_0.png" id="2_smhhj"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2fv4b"]
 
@@ -62,4 +62,13 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("2_smhhj")
 
+[node name="upgrade 1" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(500, 60)
+layout_mode = 2
+focus_mode = 0
+text = "
+
+"
+
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/upgrade 1" to="." method="_on_upgrade_1_pressed"]

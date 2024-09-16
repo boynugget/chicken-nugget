@@ -1,6 +1,7 @@
 extends Control
 
-var number =0
+var nuggets =0
+var ammountNuggets = 1
 
 @onready var label =$MarginContainer/VBoxContainer/Label
 
@@ -13,13 +14,20 @@ load("res://art/sprite_4.png"),
 ]
 
 @onready var cool_animation: TextureRect =$MarginContainer/VBoxContainer/Button/coolanimation
-var count =0
+var count =1
 func _on_button_pressed() -> void:
-	number +=1
-	label.text = str(number)
+	
+	label.text = str(nuggets)
 	
 	cool_animation.texture = imagelist[count]
 	if count == 4:
 		count = 0
+		nuggets +=ammountNuggets
 	else:
 		count+=1
+
+func _on_upgrade_1_pressed() -> void:
+	if nuggets >= 5:
+		ammountNuggets +=1
+		nuggets-=5
+		label.text = str(nuggets)
