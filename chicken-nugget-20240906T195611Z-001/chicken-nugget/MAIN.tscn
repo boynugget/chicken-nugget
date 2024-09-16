@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bbq4infyym622"]
+[gd_scene load_steps=7 format=3 uid="uid://bbq4infyym622"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_k7xhp"]
+[ext_resource type="Texture2D" uid="uid://4a7ehig3s033" path="res://art/fries-1.png.png" id="2_bw8tc"]
 [ext_resource type="Texture2D" uid="uid://jlaodn7qc2x6" path="res://art/sprite_0.png" id="2_smhhj"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2fv4b"]
@@ -26,20 +27,38 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="upgrade 1" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(500, 60)
+layout_mode = 2
+size_flags_vertical = 8
+focus_mode = 0
+theme_override_font_sizes/font_size = 29
+text = "fries(+1 nugget per click)
+"
+icon = ExtResource("2_bw8tc")
+alignment = 0
+expand_icon = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "CHICKEN NUGGET : 0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="main butten sprite" type="TextureRect" parent="MarginContainer/VBoxContainer"]
+[node name="main butten sprite" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(500, 500)
 layout_mode = 2
 focus_mode = 0
@@ -50,7 +69,7 @@ text = "
 
 "
 
-[node name="coolanimation" type="TextureRect" parent="MarginContainer/VBoxContainer/Button"]
+[node name="coolanimation" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer/Button"]
 custom_minimum_size = Vector2(500, 500)
 layout_mode = 1
 anchors_preset = 15
@@ -62,13 +81,5 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("2_smhhj")
 
-[node name="upgrade 1" type="Button" parent="MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(500, 60)
-layout_mode = 2
-focus_mode = 0
-text = "
-
-"
-
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/upgrade 1" to="." method="_on_upgrade_1_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer2/upgrade 1" to="." method="_on_upgrade_1_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]

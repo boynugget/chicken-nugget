@@ -3,7 +3,7 @@ extends Control
 var nuggets =0
 var ammountNuggets = 1
 
-@onready var label =$MarginContainer/VBoxContainer/Label
+@onready var label =$MarginContainer/HBoxContainer/VBoxContainer/Label
 
 @onready var imagelist = [
 load("res://art/sprite_0.png"),
@@ -13,7 +13,7 @@ load("res://art/sprite_3.png"),
 load("res://art/sprite_4.png"),
 ]
 
-@onready var cool_animation: TextureRect =$MarginContainer/VBoxContainer/Button/coolanimation
+@onready var cool_animation: TextureRect =$MarginContainer/HBoxContainer/VBoxContainer/Button/coolanimation
 var count =1
 func _on_button_pressed() -> void:
 	
