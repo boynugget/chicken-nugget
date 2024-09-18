@@ -23,7 +23,7 @@ func _on_button_pressed() -> void:
 	if count == 4:
 		count = 0
 		nuggets +=ammountNuggets
-		###make nugget progress here with %
+		###make nugget progress here with % 
 	else:
 		count+=1
 
@@ -38,7 +38,7 @@ func _on_upgrade_1_pressed() -> void:
 
 
 func _on_upgrade_2_pressed() -> void:
-	if ammountNuggets >= 50:
+	if nuggets >= 50:
 		ammountNuggets +=5
 		nuggets-=50
 		label.text = str(nuggets)
