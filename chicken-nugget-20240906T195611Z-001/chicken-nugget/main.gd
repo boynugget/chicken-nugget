@@ -12,6 +12,7 @@ load("res://art/sprite_2.png"),
 load("res://art/sprite_3.png"),
 load("res://art/sprite_4.png"),
 ]
+@onready var progress_bar: ProgressBar = $MarginContainer/HBoxContainer/VBoxContainer2/ProgressBar
 
 @onready var cool_animation: TextureRect =$MarginContainer/HBoxContainer/VBoxContainer/Button/coolanimation
 var count =1
@@ -23,7 +24,8 @@ func _on_button_pressed() -> void:
 	if count == 4:
 		count = 0
 		nuggets +=ammountNuggets
-		###make nugget progress here with % 
+		
+		progress_bar.value+=1
 	else:
 		count+=1
 
@@ -54,4 +56,11 @@ func _on_upgrade_3_pressed() -> void:
 	if nuggets >= 100:
 		ammountNuggets +=10
 		nuggets-=100
+		label.text = str(nuggets)
+
+
+func _on_upgrade_4_pressed() -> void:
+	if nuggets >= 1000:
+		ammountNuggets +=100
+		nuggets =-1000
 		label.text = str(nuggets)
