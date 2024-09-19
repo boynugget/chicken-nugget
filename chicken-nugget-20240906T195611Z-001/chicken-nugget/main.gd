@@ -48,3 +48,10 @@ func _on_upgrade_2_pressed() -> void:
 		
 	
 	
+
+
+func _on_upgrade_3_pressed() -> void:
+	if nuggets >= 100:
+		ammountNuggets +=10
+		nuggets-=100
+		label.text = str(nuggets)

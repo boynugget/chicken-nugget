@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://bbq4infyym622"]
+[gd_scene load_steps=10 format=3 uid="uid://bbq4infyym622"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_k7xhp"]
 [ext_resource type="Texture2D" uid="uid://4a7ehig3s033" path="res://art/fries-1.png.png" id="2_bw8tc"]
 [ext_resource type="Texture2D" uid="uid://cu4uap6x2d74b" path="res://art/pixel-art-night-sky-background-with-clouds-and-stars-for-game-8-bit-vector.jpg" id="2_ghjec"]
 [ext_resource type="Texture2D" uid="uid://jlaodn7qc2x6" path="res://art/sprite_0.png" id="2_smhhj"]
 [ext_resource type="Texture2D" uid="uid://dde6oqk323sio" path="res://art/soda.png" id="3_h503y"]
+[ext_resource type="Texture2D" uid="uid://difna28wkh47j" path="res://art/burger.png" id="5_78mqh"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2fv4b"]
 
@@ -68,6 +69,18 @@ icon = ExtResource("3_h503y")
 alignment = 0
 expand_icon = true
 
+[node name="upgrade 3" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(500, 60)
+layout_mode = 2
+size_flags_vertical = 8
+focus_mode = 0
+theme_override_font_sizes/font_size = 29
+text = "burger(+10 per click)cost:100
+"
+icon = ExtResource("5_78mqh")
+alignment = 0
+expand_icon = true
+
 [node name="ProgressBar" type="ProgressBar" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
 modulate = Color(0.392585, 0.97952, 0.572616, 1)
 layout_mode = 2
@@ -111,4 +124,5 @@ texture = ExtResource("2_smhhj")
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer2/upgrade 1" to="." method="_on_upgrade_1_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer2/upgrade 2" to="." method="_on_upgrade_2_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer2/upgrade 3" to="." method="_on_upgrade_3_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
