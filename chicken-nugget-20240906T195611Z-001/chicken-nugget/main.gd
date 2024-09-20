@@ -1,5 +1,7 @@
 extends Control
 
+var tickDuration
+var autoNugget =0
 var nuggets =0
 var ammountNuggets = 1
 
@@ -25,9 +27,10 @@ func _on_button_pressed() -> void:
 		count = 0
 		nuggets +=ammountNuggets
 		
-		progress_bar.value+=1
+		progress_bar.value+=0.5
 	else:
 		count+=1
+
 
 func _on_upgrade_1_pressed() -> void:
 	if nuggets >= 5:
@@ -64,3 +67,7 @@ func _on_upgrade_4_pressed() -> void:
 		ammountNuggets +=100
 		nuggets =-1000
 		label.text = str(nuggets)
+
+
+func _on_upgrade_5_pressed() -> void:
+	pass # Replace with function body.

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bbq4infyym622"]
+[gd_scene load_steps=14 format=3 uid="uid://bbq4infyym622"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_k7xhp"]
 [ext_resource type="AudioStream" uid="uid://b8ymiohhfpe1b" path="res://Wine.mp3" id="2_0vvvv"]
@@ -8,6 +8,11 @@
 [ext_resource type="Texture2D" uid="uid://dde6oqk323sio" path="res://art/soda.png" id="3_h503y"]
 [ext_resource type="Texture2D" uid="uid://difna28wkh47j" path="res://art/burger.png" id="5_78mqh"]
 [ext_resource type="Texture2D" uid="uid://hn6djgx3nv2w" path="res://art/jujyfavuyefv0.png" id="7_vu7b3"]
+[ext_resource type="FontFile" uid="uid://sexxw26m75yb" path="res://super_bakery/Super Bakery.ttf" id="8_bctib"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_y2o77"]
+font = ExtResource("8_bctib")
+font_size = 51
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2fv4b"]
 
@@ -23,6 +28,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_k7xhp")
+
+[node name="Timer" type="Timer" parent="."]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_0vvvv")
@@ -110,6 +117,7 @@ size_flags_horizontal = 4
 [node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "CHICKEN NUGGET : 0"
+label_settings = SubResource("LabelSettings_y2o77")
 horizontal_alignment = 1
 vertical_alignment = 1
 
