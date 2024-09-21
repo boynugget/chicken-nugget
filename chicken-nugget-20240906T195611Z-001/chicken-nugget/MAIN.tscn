@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bbq4infyym622"]
+[gd_scene load_steps=15 format=3 uid="uid://bbq4infyym622"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_k7xhp"]
 [ext_resource type="AudioStream" uid="uid://b8ymiohhfpe1b" path="res://Wine.mp3" id="2_0vvvv"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://difna28wkh47j" path="res://art/burger.png" id="5_78mqh"]
 [ext_resource type="Texture2D" uid="uid://hn6djgx3nv2w" path="res://art/jujyfavuyefv0.png" id="7_vu7b3"]
 [ext_resource type="FontFile" uid="uid://sexxw26m75yb" path="res://super_bakery/Super Bakery.ttf" id="8_bctib"]
+[ext_resource type="Texture2D" uid="uid://cpnc7fiiqdiob" path="res://unnamed.webp" id="9_odhey"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_y2o77"]
 font = ExtResource("8_bctib")
@@ -30,9 +31,11 @@ grow_vertical = 2
 script = ExtResource("1_k7xhp")
 
 [node name="Timer" type="Timer" parent="."]
+autostart = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_0vvvv")
+volume_db = 0.5
 autoplay = true
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -63,6 +66,7 @@ custom_minimum_size = Vector2(500, 60)
 layout_mode = 2
 size_flags_vertical = 8
 focus_mode = 0
+theme_override_fonts/font = ExtResource("8_bctib")
 theme_override_font_sizes/font_size = 29
 text = "fries(+1 nugget per click)cost:5
 "
@@ -75,6 +79,7 @@ custom_minimum_size = Vector2(500, 60)
 layout_mode = 2
 size_flags_vertical = 8
 focus_mode = 0
+theme_override_fonts/font = ExtResource("8_bctib")
 theme_override_font_sizes/font_size = 29
 text = "soda(+5 nugget per click)cost:50
 "
@@ -87,6 +92,7 @@ custom_minimum_size = Vector2(500, 60)
 layout_mode = 2
 size_flags_vertical = 8
 focus_mode = 0
+theme_override_fonts/font = ExtResource("8_bctib")
 theme_override_font_sizes/font_size = 29
 text = "burger(+10 per click)cost:100
 "
@@ -99,10 +105,24 @@ custom_minimum_size = Vector2(500, 60)
 layout_mode = 2
 size_flags_vertical = 8
 focus_mode = 0
+theme_override_fonts/font = ExtResource("8_bctib")
 theme_override_font_sizes/font_size = 29
-text = "TheDrink+100 per click)cost:1000
+text = "TheDrink(+1 per second)cost:150
 "
 icon = ExtResource("7_vu7b3")
+alignment = 0
+expand_icon = true
+
+[node name="upgrade 5" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(500, 60)
+layout_mode = 2
+size_flags_vertical = 8
+focus_mode = 0
+theme_override_fonts/font = ExtResource("8_bctib")
+theme_override_font_sizes/font_size = 24
+text = " homlessBum(+5 per second)cost:300
+"
+icon = ExtResource("9_odhey")
 alignment = 0
 expand_icon = true
 
@@ -147,8 +167,10 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("2_smhhj")
 
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer2/upgrade 1" to="." method="_on_upgrade_1_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer2/upgrade 2" to="." method="_on_upgrade_2_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer2/upgrade 3" to="." method="_on_upgrade_3_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer2/upgrade 4" to="." method="_on_upgrade_4_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer2/upgrade 5" to="." method="_on_upgrade_5_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
