@@ -148,10 +148,33 @@ size_flags_vertical = 8
 focus_mode = 0
 theme_override_fonts/font = ExtResource("8_bctib")
 theme_override_font_sizes/font_size = 23
-text = "promotiom(+50 nuggets per clickl, + 20 per second)cost:1500
+text = "promotiom(+50 nuggets per clickl, + 20 per second)cost:1250
 "
 icon = ExtResource("11_g1hjn")
 alignment = 0
+expand_icon = true
+
+[node name="save" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(500, 60)
+layout_mode = 2
+size_flags_vertical = 8
+focus_mode = 0
+theme_override_fonts/font = ExtResource("8_bctib")
+theme_override_font_sizes/font_size = 60
+text = "save
+"
+icon_alignment = 1
+expand_icon = true
+
+[node name="load\'" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(500, 60)
+layout_mode = 2
+size_flags_vertical = 8
+focus_mode = 0
+theme_override_fonts/font = ExtResource("8_bctib")
+theme_override_font_sizes/font_size = 60
+text = "load
+"
 expand_icon = true
 
 [node name="ProgressBar" type="ProgressBar" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
@@ -204,4 +227,6 @@ texture = ExtResource("2_smhhj")
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer2/upgrade 5" to="." method="_on_upgrade_5_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer2/upgrade 6" to="." method="_on_upgrade_6_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer2/upgrade 7" to="." method="_on_upgrade_7_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer2/save" to="." method="_on_save_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer2/load\'" to="." method="_on_load_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
