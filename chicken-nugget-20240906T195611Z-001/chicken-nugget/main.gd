@@ -29,8 +29,15 @@ func _on_button_pressed() -> void:
 		
 		progress_bar.value+=0.5
 	else:
-		count+=1
-
+		count+= 1
+		
+		if progress_bar.value == 100:
+			progress_bar.value -=100
+			autoNugget += 5
+			ammountNuggets +=15
+		
+		
+		
 
 func _on_upgrade_1_pressed() -> void:
 	if nuggets >= 5:
@@ -74,4 +81,29 @@ func _on_upgrade_4_pressed() -> void:
 
 
 func _on_upgrade_5_pressed() -> void:
-	pass # Replace with function body.
+	if nuggets >= 300:
+		autoNugget += 5
+		nuggets -= 300
+		label.text = "nuggets: " + str(nuggets)
+	
+
+	
+
+
+func _on_upgrade_6_pressed() -> void:
+	if nuggets >= 600:
+		autoNugget += 15
+		nuggets -= 600
+		label.text = "nuggets: " + str(nuggets)
+		 
+
+
+func _on_upgrade_7_pressed() -> void:
+	if nuggets >=1500:
+		autoNugget +=20
+		ammountNuggets +=50
+		nuggets -=1500
+		label.text = "nuggets: " + str(nuggets)
+		
+	
+	
