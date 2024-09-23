@@ -33,8 +33,8 @@ func _on_button_pressed() -> void:
 		
 		if progress_bar.value == 100:
 			progress_bar.value -=100
-			autoNugget += 5
-			ammountNuggets +=15
+			autoNugget += 20
+			ammountNuggets +=100
 		
 		
 		
