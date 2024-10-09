@@ -135,3 +135,7 @@ func _on_save_pressed() -> void:
 
 func _on_load_pressed() -> void:
 	load_data()
+
+
+func _on_upgrade_8_pressed() -> void:
+	get_tree().change_scene("res://pt_2.tscn")
