@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bbq4infyym622"]
+[gd_scene load_steps=17 format=3 uid="uid://bbq4infyym622"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_k7xhp"]
 [ext_resource type="AudioStream" uid="uid://b8ymiohhfpe1b" path="res://Wine.mp3" id="2_0vvvv"]
@@ -9,10 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://difna28wkh47j" path="res://art/burger.png" id="5_78mqh"]
 [ext_resource type="Texture2D" uid="uid://hn6djgx3nv2w" path="res://art/jujyfavuyefv0.png" id="7_vu7b3"]
 [ext_resource type="FontFile" uid="uid://sexxw26m75yb" path="res://super_bakery/Super Bakery.ttf" id="8_bctib"]
-[ext_resource type="Texture2D" uid="uid://cpnc7fiiqdiob" path="res://unnamed.webp" id="9_odhey"]
+[ext_resource type="Texture2D" uid="uid://cd1b8b83imgo1" path="res://unnamed.webp" id="9_odhey"]
 [ext_resource type="Texture2D" uid="uid://blp2l1g7x2882" path="res://IMG_1044.jpeg" id="10_8oxq4"]
 [ext_resource type="Texture2D" uid="uid://ca3eu1lscvila" path="res://art/arrow.png" id="11_g1hjn"]
-[ext_resource type="Texture2D" uid="uid://dvfydoieifpcf" path="res://art/360_F_216900207_Qzsnl42GZPn6tRa86DeI1ioY4M0pz0eF.jpg" id="13_j30wf"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_y2o77"]
 font = ExtResource("8_bctib")
@@ -197,20 +196,9 @@ vertical_alignment = 1
 [node name="main butten sprite" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="coolanimation" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(500, 500)
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture = ExtResource("2_smhhj")
-
-[node name="Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/coolanimation"]
-custom_minimum_size = Vector2(500, 500)
-layout_mode = 2
-offset_left = -72.0
-offset_top = 568.0
-offset_right = 573.0
-offset_bottom = 1068.0
 focus_mode = 0
 theme_override_styles/hover = SubResource("StyleBoxTexture_2fv4b")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_txubh")
@@ -219,18 +207,17 @@ text = "
 
 "
 
-[node name="upgrade 8" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(500, 60)
-layout_mode = 2
-size_flags_vertical = 8
-focus_mode = 0
-theme_override_fonts/font = ExtResource("8_bctib")
-theme_override_font_sizes/font_size = 23
-text = "next part
-"
-icon = ExtResource("13_j30wf")
-alignment = 0
-expand_icon = true
+[node name="coolanimation" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer/Button"]
+custom_minimum_size = Vector2(500, 500)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_smhhj")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer2/upgrade 1" to="." method="_on_upgrade_1_pressed"]
@@ -242,5 +229,4 @@ expand_icon = true
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer2/upgrade 7" to="." method="_on_upgrade_7_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer2/save" to="." method="_on_save_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer2/load\'" to="." method="_on_load_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/coolanimation/Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/upgrade 8" to="." method="_on_upgrade_8_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
