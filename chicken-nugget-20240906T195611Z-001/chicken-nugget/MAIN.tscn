@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bbq4infyym622"]
+[gd_scene load_steps=18 format=3 uid="uid://bbq4infyym622"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_k7xhp"]
 [ext_resource type="AudioStream" uid="uid://b8ymiohhfpe1b" path="res://Wine.mp3" id="2_0vvvv"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://cd1b8b83imgo1" path="res://unnamed.webp" id="9_odhey"]
 [ext_resource type="Texture2D" uid="uid://blp2l1g7x2882" path="res://IMG_1044.jpeg" id="10_8oxq4"]
 [ext_resource type="Texture2D" uid="uid://ca3eu1lscvila" path="res://art/arrow.png" id="11_g1hjn"]
+[ext_resource type="Texture2D" uid="uid://dvfydoieifpcf" path="res://art/360_F_216900207_Qzsnl42GZPn6tRa86DeI1ioY4M0pz0eF.jpg" id="13_yw7it"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_y2o77"]
 font = ExtResource("8_bctib")
@@ -219,6 +220,17 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("2_smhhj")
 
+[node name="load\'2" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(500, 60)
+layout_mode = 2
+size_flags_vertical = 8
+focus_mode = 0
+theme_override_fonts/font = ExtResource("8_bctib")
+theme_override_font_sizes/font_size = 60
+text = "next"
+icon = ExtResource("13_yw7it")
+expand_icon = true
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer2/upgrade 1" to="." method="_on_upgrade_1_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer2/upgrade 2" to="." method="_on_upgrade_2_pressed"]
@@ -230,3 +242,4 @@ texture = ExtResource("2_smhhj")
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer2/save" to="." method="_on_save_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer2/load\'" to="." method="_on_load_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/load\'2" to="." method="_on_load_2_pressed"]
