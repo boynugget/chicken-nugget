@@ -1,2 +1,4 @@
 extends Node
-var nuggets =0
+var nuggets =150
+
+var autoNugget =0

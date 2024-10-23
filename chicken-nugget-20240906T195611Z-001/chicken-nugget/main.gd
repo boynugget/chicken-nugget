@@ -1,7 +1,7 @@
 extends Control
 
 var save_path = "user://variable.save"
-var autoNugget =0
+
 
 var ammountNuggets = 1
 
@@ -33,7 +33,7 @@ func _on_button_pressed() -> void:
 		
 		if progress_bar.value == 100:
 			progress_bar.value -=100
-			autoNugget += (autoNugget*.2)
+			Global.autoNugget += (Global.autoNugget*.2)
 			ammountNuggets += (ammountNuggets*.5)
 		
 		
@@ -70,19 +70,19 @@ func _on_upgrade_3_pressed() -> void:
 		label.text = "nuggets: " + str(Global.nuggets)
 
 func _on_timer_timeout() -> void:
-	Global.nuggets += autoNugget
+	Global.nuggets += Global.autoNugget
 	label.text = "nuggets: " + str(Global.nuggets)
 
 func _on_upgrade_4_pressed() -> void:
 	if Global.nuggets >= 150:
-		autoNugget += 1
+		Global.autoNugget += 1
 		Global.nuggets  -= 150
 		label.text = "nuggets: " + str(Global.nuggets)
 
 
 func _on_upgrade_5_pressed() -> void:
 	if Global.nuggets >= 300:
-		autoNugget += 5
+		Global.autoNugget += 5
 		Global.nuggets -= 300
 		label.text = "nuggets: " + str(Global.nuggets)
 	
@@ -92,7 +92,7 @@ func _on_upgrade_5_pressed() -> void:
 
 func _on_upgrade_6_pressed() -> void:
 	if Global.nuggets >= 600:
-		autoNugget += 15
+		Global.autoNugget += 15
 		Global.nuggets -= 600
 		label.text = "nuggets: " + str(Global.nuggets)
 		 
@@ -100,7 +100,7 @@ func _on_upgrade_6_pressed() -> void:
 
 func _on_upgrade_7_pressed() -> void:
 	if Global.nuggets >=1250:
-		autoNugget +=20
+		Global.autoNugget +=20
 		ammountNuggets +=50
 		Global.nuggets -=1250
 		label.text = "nuggets: " + str(Global.nuggets)
@@ -110,19 +110,19 @@ func save():
 	var file = FileAccess.open(save_path, FileAccess.WRITE)
 	file.store_var(Global.nuggets)
 	file.store_var(ammountNuggets)
-	file.store_var(autoNugget)
+	file.store_var(	Global.autoNugget)
 	
 func load_data():
 	if FileAccess.file_exists(save_path):
 		var file = FileAccess.open(save_path, FileAccess.READ)
 		Global.nuggets = file.get_var(Global.nuggets)
 		ammountNuggets = file.get_var(ammountNuggets)
-		autoNugget = file.get_var(autoNugget)
+		Global.autoNugget = file.get_var(	Global.autoNugget)
 	else:
 		print("no data saved...")
 		Global.nuggets = 0
 		ammountNuggets = 0
-		autoNugget = 0
+		Global.autoNugget = 0
 
 
 
