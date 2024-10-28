@@ -1,12 +1,16 @@
-[gd_scene load_steps=9 format=3 uid="uid://dtwsma0vra1pv"]
+[gd_scene load_steps=11 format=3 uid="uid://dtwsma0vra1pv"]
 
 [ext_resource type="Texture2D" uid="uid://dvfydoieifpcf" path="res://art/360_F_216900207_Qzsnl42GZPn6tRa86DeI1ioY4M0pz0eF.jpg" id="1_d4bxh"]
 [ext_resource type="Script" path="res://pt_2.gd" id="1_top31"]
 [ext_resource type="AudioStream" uid="uid://c0ly11frwslx1" path="res://spotifydown.com - klek.mp3" id="2_41qjr"]
 [ext_resource type="Texture2D" uid="uid://4a7ehig3s033" path="res://art/fries-1.png.png" id="4_xu0gh"]
+[ext_resource type="Texture2D" uid="uid://difna28wkh47j" path="res://art/burger.png" id="5_fcvs0"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_3f810"]
 font_size = 60
+
+[sub_resource type="Animation" id="Animation_la1qi"]
+length = 0.001
 
 [sub_resource type="Animation" id="Animation_ar240"]
 resource_name = "fry anim"
@@ -35,36 +39,37 @@ tracks/1/keys = {
 "values": [-6.28319, -1.16064, 6.28319]
 }
 
-[sub_resource type="Animation" id="Animation_la1qi"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_m7xoh"]
+resource_name = "burger anim"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("TextureRect2:position")
+tracks/0/path = NodePath("TextureRect3:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.233333, 0.566667, 0.833333, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(1097, 11)]
+"values": [Vector2(1169, 21), Vector2(975, 133), Vector2(856, 242), Vector2(856, 242), Vector2(659, 342)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("TextureRect2:rotation")
+tracks/1/path = NodePath("TextureRect3:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.233333, 0.566667, 0.833333, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [-1.16064]
+"values": [0.0, 0.773181, -0.579449, 0.773181, -6.28319]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vrhhq"]
 _data = {
 "RESET": SubResource("Animation_la1qi"),
+"burger anim": SubResource("Animation_m7xoh"),
 "fry anim": SubResource("Animation_ar240")
 }
 
@@ -127,6 +132,14 @@ size_flags_stretch_ratio = 0.0
 theme_override_font_sizes/font_size = 50
 text = "fry cook(1000)spawnsfries"
 
+[node name="Button3" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_stretch_ratio = 0.0
+theme_override_font_sizes/font_size = 50
+text = "burgerman(1500)spawns
+burger"
+
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -139,7 +152,7 @@ offset_left = 1097.0
 offset_top = 11.0
 offset_right = 1147.0
 offset_bottom = 61.0
-rotation = -1.16064
+rotation = -6.28319
 size_flags_vertical = 0
 size_flags_stretch_ratio = 0.0
 texture = ExtResource("4_xu0gh")
@@ -150,7 +163,22 @@ libraries = {
 "": SubResource("AnimationLibrary_vrhhq")
 }
 
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_vrhhq")
+}
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 1169.0
+offset_top = 21.0
+offset_right = 1227.0
+offset_bottom = 90.0
+texture = ExtResource("5_fcvs0")
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Button3" to="." method="_on_button_3_pressed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="animation_finished" from="AnimationPlayer2" to="." method="_on_animation_player_2_animation_finished"]

@@ -9,6 +9,11 @@ func _ready() -> void:
 		button_2.disabled = true
 		animation_player.play("fry anim")
 	label.text = "nuggets: " + str(Global.nuggets)
+	if Global.isdisabled2 == true:
+		button_3.disabled = true
+		animation_player_2.play("burger anim")
+		label.text = "nugets: " + str(Global.nuggets)
+	
 
 
 
@@ -45,5 +50,22 @@ func _on_button_2_pressed() -> void:
 @onready var button_2: Button = $MarginContainer/HBoxContainer/VBoxContainer/Button2
 
 
+@onready var button_3: Button = $MarginContainer/HBoxContainer/VBoxContainer/Button3
+@onready var animation_player_2: AnimationPlayer = $AnimationPlayer2
 
 	
+
+
+func _on_button_3_pressed() -> void:
+	if Global.nuggets >= 1500:
+		animation_player_2.play("burger anim")
+		Global.nuggets -= 1500
+		label.text = "nuggets: " + str(Global.nuggets)
+		button_3.disabled = true
+		Global.isdisabled2 = true
+
+
+func _on_animation_player_2_animation_finished(anim_name: StringName) -> void:
+	Global.nuggets += 80
+	animation_player_2.play("burger anim")
+	label.text = "nuggets: " + str(Global.nuggets)
