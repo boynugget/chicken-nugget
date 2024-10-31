@@ -1,43 +1,18 @@
-[gd_scene load_steps=11 format=3 uid="uid://dtwsma0vra1pv"]
+[gd_scene load_steps=12 format=3 uid="uid://dtwsma0vra1pv"]
 
 [ext_resource type="Texture2D" uid="uid://dvfydoieifpcf" path="res://art/360_F_216900207_Qzsnl42GZPn6tRa86DeI1ioY4M0pz0eF.jpg" id="1_d4bxh"]
 [ext_resource type="Script" path="res://pt_2.gd" id="1_top31"]
 [ext_resource type="AudioStream" uid="uid://c0ly11frwslx1" path="res://spotifydown.com - klek.mp3" id="2_41qjr"]
+[ext_resource type="FontFile" uid="uid://sexxw26m75yb" path="res://super_bakery/Super Bakery.ttf" id="4_878ud"]
 [ext_resource type="Texture2D" uid="uid://4a7ehig3s033" path="res://art/fries-1.png.png" id="4_xu0gh"]
 [ext_resource type="Texture2D" uid="uid://difna28wkh47j" path="res://art/burger.png" id="5_fcvs0"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_3f810"]
+font = ExtResource("4_878ud")
 font_size = 60
 
 [sub_resource type="Animation" id="Animation_la1qi"]
 length = 0.001
-
-[sub_resource type="Animation" id="Animation_ar240"]
-resource_name = "fry anim"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("TextureRect2:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.266667, 0.666667),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(1097, 11), Vector2(929, 99), Vector2(640, 318)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("TextureRect2:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5, 0.666667),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [-6.28319, -1.16064, 6.28319]
-}
 
 [sub_resource type="Animation" id="Animation_m7xoh"]
 resource_name = "burger anim"
@@ -64,6 +39,33 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
 "values": [0.0, 0.773181, -0.579449, 0.773181, -6.28319]
+}
+
+[sub_resource type="Animation" id="Animation_ar240"]
+resource_name = "fry anim"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.266667, 0.666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1097, 11), Vector2(929, 99), Vector2(640, 318)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextureRect2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-6.28319, -1.16064, 6.28319]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vrhhq"]
@@ -122,6 +124,7 @@ label_settings = SubResource("LabelSettings_3f810")
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_stretch_ratio = 0.0
+theme_override_fonts/font = ExtResource("4_878ud")
 theme_override_font_sizes/font_size = 50
 text = "go back"
 
@@ -129,6 +132,7 @@ text = "go back"
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_stretch_ratio = 0.0
+theme_override_fonts/font = ExtResource("4_878ud")
 theme_override_font_sizes/font_size = 50
 text = "fry cook(1000)spawnsfries"
 
@@ -136,6 +140,7 @@ text = "fry cook(1000)spawnsfries"
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_stretch_ratio = 0.0
+theme_override_fonts/font = ExtResource("4_878ud")
 theme_override_font_sizes/font_size = 50
 text = "burgerman(1500)spawns
 burger"

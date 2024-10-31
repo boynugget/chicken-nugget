@@ -3,7 +3,6 @@ extends Control
 var save_path = "user://variable.save"
 
 
-var ammountNuggets = 1
 
 @onready var label =$MarginContainer/HBoxContainer/VBoxContainer/Label
 
@@ -25,7 +24,7 @@ func _on_button_pressed() -> void:
 	cool_animation.texture = imagelist[count]
 	if count == 4:
 		count = 0
-		Global.nuggets +=ammountNuggets
+		Global.nuggets +=Global.ammountNuggets
 		
 		progress_bar.value+=0.5
 	else:
@@ -34,14 +33,14 @@ func _on_button_pressed() -> void:
 		if progress_bar.value == 100:
 			progress_bar.value -=100
 			Global.autoNugget += (Global.autoNugget*.2)
-			ammountNuggets += (ammountNuggets*.5)
+			Global.ammountNuggets += (Global.ammountNuggets*.5)
 		
 		
 		
 
 func _on_upgrade_1_pressed() -> void:
 	if Global.nuggets >= 5:
-		ammountNuggets +=1
+		Global.ammountNuggets +=1
 		Global.nuggets-=5
 		label.text = "nuggets: " + str(Global.nuggets)
 		
@@ -51,7 +50,7 @@ func _on_upgrade_1_pressed() -> void:
 
 func _on_upgrade_2_pressed() -> void:
 	if Global.nuggets >= 50:
-		ammountNuggets +=5
+		Global.ammountNuggets +=5
 		Global.nuggets-=50
 		label.text = "nuggets: " + str(Global.nuggets)
 		
@@ -65,7 +64,7 @@ func _on_upgrade_2_pressed() -> void:
 
 func _on_upgrade_3_pressed() -> void:
 	if Global.nuggets >= 100:
-		ammountNuggets +=10
+		Global.ammountNuggets +=10
 		Global.nuggets-=100
 		label.text = "nuggets: " + str(Global.nuggets)
 
@@ -101,7 +100,7 @@ func _on_upgrade_6_pressed() -> void:
 func _on_upgrade_7_pressed() -> void:
 	if Global.nuggets >=1250:
 		Global.autoNugget +=20
-		ammountNuggets +=50
+		Global.ammountNuggets +=50
 		Global.nuggets -=1250
 		label.text = "nuggets: " + str(Global.nuggets)
 		
@@ -109,20 +108,26 @@ func _on_upgrade_7_pressed() -> void:
 func save():
 	var file = FileAccess.open(save_path, FileAccess.WRITE)
 	file.store_var(Global.nuggets)
-	file.store_var(ammountNuggets)
+	file.store_var(Global.ammountNuggets)
 	file.store_var(	Global.autoNugget)
+	file.store_var(Global.isdisabled)
+	file.store_var(Global.isdisabled2)
 	
 func load_data():
 	if FileAccess.file_exists(save_path):
 		var file = FileAccess.open(save_path, FileAccess.READ)
 		Global.nuggets = file.get_var(Global.nuggets)
-		ammountNuggets = file.get_var(ammountNuggets)
+		Global.ammountNuggets = file.get_var(Global.ammountNuggets)
 		Global.autoNugget = file.get_var(	Global.autoNugget)
+		Global.isdisabled = file.get_var(Global.isdisabled)
+		Global.isdisabled2 = file.get_var(Global.isdisabled2)
 	else:
 		print("no data saved...")
 		Global.nuggets = 0
-		ammountNuggets = 0
+		Global.ammountNuggets = 0
 		Global.autoNugget = 0
+		Global.isdisabled = false
+		Global.isdisabled2 = false
 
 
 

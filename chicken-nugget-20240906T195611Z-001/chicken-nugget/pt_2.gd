@@ -69,3 +69,8 @@ func _on_animation_player_2_animation_finished(anim_name: StringName) -> void:
 	Global.nuggets += 80
 	animation_player_2.play("burger anim")
 	label.text = "nuggets: " + str(Global.nuggets)
+
+
+
+
+	
